@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro | Master Hub</title>
+
+    <!-- ICONOS -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- FUENTE -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- TU CSS -->
+    <link rel="stylesheet" href="css/inicio_sesion.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- PANEL IZQUIERDO -->
+    <div class="left-panel">
+
+        <div class="overlay"></div>
+
+        <div class="content">
+
+            <div class="logo">
+
+                <div class="logo-icon">M</div>
+
+                <div class="logo-text">
+
+                    <h1>MASTER HUB</h1>
+
+                    <span>MEDIA CENTER</span>
+
+                </div>
+
+            </div>
+
+            <div class="line"></div>
+
+            <p>
+                Crea una cuenta para comenzar a administrar y organizar contenido multimedia de forma profesional.
+            </p>
+
+            <div class="icons">
+
+                <div class="icon-box">
+                    <i class="fa-solid fa-user-plus"></i>
+                </div>
+
+                <div class="icon-box">
+                    <i class="fa-solid fa-photo-film"></i>
+                </div>
+
+                <div class="icon-box">
+                    <i class="fa-solid fa-folder-open"></i>
+                </div>
+
+                <div class="icon-box">
+                    <i class="fa-solid fa-cloud"></i>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- PANEL DERECHO -->
+    <div class="right-panel">
+
+        <div class="login-card">
+
+            <div class="top-logo">
+                M
+            </div>
+
+            <h2>Registrarse</h2>
+
+            <p class="subtitle">
+                Completa el formulario para crear tu cuenta
+            </p>
+
+            <!-- FORMULARIO -->
+            <form action="php/registro.php" method="POST">
+
+                <!-- NOMBRE -->
+                <label>Nombre completo</label>
+
+                <div class="input-box">
+
+                    <i class="fa-regular fa-user"></i>
+
+                    <input 
+                    type="text"
+                    name="nombre"
+                    placeholder="Ingresa tu nombre"
+                    required>
+
+                </div>
+
+                <!-- CORREO -->
+                <label>Correo electrónico</label>
+
+                <div class="input-box">
+
+                    <i class="fa-regular fa-envelope"></i>
+
+                    <input 
+                    type="email"
+                    name="correo"
+                    placeholder="Ingresa tu correo"
+                    required>
+
+                </div>
+
+                <!-- CONTRASEÑA -->
+                <label>Contraseña</label>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input 
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Crea una contraseña"
+                    required>
+
+                    <i class="fa-regular fa-eye" id="togglePassword"></i>
+
+                </div>
+
+                <!-- CONFIRMAR -->
+                <label>Confirmar contraseña</label>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input 
+                    type="password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    placeholder="Confirma tu contraseña"
+                    required>
+
+                    <i class="fa-regular fa-eye" id="toggleConfirm"></i>
+
+                </div>
+
+                <!-- BOTÓN REGISTRAR -->
+                <button type="submit" class="login-btn">
+
+                    <i class="fa-solid fa-user-check"></i>
+
+                    <span>Crear cuenta</span>
+
+                </button>
+
+                <!-- VOLVER -->
+                <button 
+                type="button" 
+                class="institutional-btn"
+                onclick="window.location.href='inicio_sesion.html'"
+                style="margin-top:15px;">
+
+                    <i class="fa-solid fa-arrow-left"></i>
+
+                    <span>Volver al inicio</span>
+
+                </button>
+
+            </form>
+
+            <div class="footer">
+                ¿Ya tienes cuenta?
+                <a href="index.html">Inicia sesión</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- SCRIPT MOSTRAR CONTRASEÑA -->
+<script>
+
+const togglePassword = document.getElementById("togglePassword");
+const password = document.getElementById("password");
+
+togglePassword.addEventListener("click", function(){
+
+    if(password.type === "password"){
+
+        password.type = "text";
+
+        this.classList.remove("fa-eye");
+        this.classList.add("fa-eye-slash");
+
+    }else{
+
+        password.type = "password";
+
+        this.classList.remove("fa-eye-slash");
+        this.classList.add("fa-eye");
+
+    }
+
+});
+
+const toggleConfirm = document.getElementById("toggleConfirm");
+const confirmPassword = document.getElementById("confirmPassword");
+
+toggleConfirm.addEventListener("click", function(){
+
+    if(confirmPassword.type === "password"){
+
+        confirmPassword.type = "text";
+
+        this.classList.remove("fa-eye");
+        this.classList.add("fa-eye-slash");
+
+    }else{
+
+        confirmPassword.type = "password";
+
+        this.classList.remove("fa-eye-slash");
+        this.classList.add("fa-eye");
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>

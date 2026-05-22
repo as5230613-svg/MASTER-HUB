@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Cliente</title>
+
+    <link rel="stylesheet" href="css/cliente.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="sidebar">
+
+        <div class="logo-container">
+            <div class="logo-text">
+                MASTER HUB
+                <span>MEDIA CENTER</span>
+            </div>
+        </div>
+
+        <ul class="menu">
+
+            <li class="active">
+                <a href="#">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Inicio</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-video"></i>
+                    <span>Mis videos</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>Favoritos</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-list"></i>
+                    <span>Listas</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-folder"></i>
+                    <span>Mis colecciones</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>Historial</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span>Analytics</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>Mensajes</span>
+                    <span class="menu-badge">3</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Configuración</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-circle-question"></i>
+                    <span>Ayuda</span>
+                </a>
+            </li>
+
+        </ul>
+
+        <div class="user-box">
+
+            <img src="https://i.imgur.com/6VBx3io.png" alt="usuario">
+
+            <div class="user-info">
+                <h4><?php echo $nombre; ?></h4>
+                <small><?php echo $rol; ?></small>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="main">
+
+        <!-- TOPBAR -->
+        <div class="topbar">
+
+            <div class="search-container">
+                <input type="text"
+                    class="search"
+                    placeholder="Buscar videos, listas, categorías...">
+            </div>
+
+            <div class="topbar-actions">
+
+                <button type="button" class="icon-btn">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="icon-badge">5</span>
+                </button>
+
+                <button type="button" class="icon-btn">
+                    <i class="fa-regular fa-envelope"></i>
+                </button>
+
+                <img src="https://i.imgur.com/6VBx3io.png"
+                    class="topbar-user-img"
+                    alt="Miniatura usuario">
+
+            </div>
+
+        </div>
+
+        <!-- CONTENIDO CENTRAL -->
+        <div class="center-content">
+
+            <!-- BIENVENIDA -->
+            <div class="welcome">
+
+                <h1>
+                    ¡Bienvenido,
+                    <span><?php echo $nombre; ?></span>! 👋
+                </h1>
+
+                <p>
+                    Explora, aprende y crea con todo el contenido que tenemos para ti.
+                </p>
+
+            </div>
+
+            <!-- =========================
+                    CARDS DINÁMICAS
+            ========================== -->
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <div class="card-icon bg-purple">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+
+                    <div class="card-info">
+                        <span>Videos vistos</span>
+                        <h2><?php echo !empty($videos_vistos) ? $videos_vistos : 0; ?></h2>
+                        <p class="text-green">Historial total</p>
+                    </div>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="card-icon bg-pink">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+
+                    <div class="card-info">
+                        <span>Favoritos</span>
+                        <h2><?php echo !empty($favoritos) ? $favoritos : 0; ?></h2>
+                        <p class="text-green">Videos guardados</p>
+                    </div>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="card-icon bg-blue">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+
+                    <div class="card-info">
+                        <span>Horas vistas</span>
+                        <h2><?php echo !empty($horas) ? $horas : 0; ?>h</h2>
+                        <p class="text-green">Tiempo total</p>
+                    </div>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="card-icon bg-green">
+                        <i class="fa-solid fa-folder"></i>
+                    </div>
+
+                    <div class="card-info">
+                        <span>Colecciones</span>
+                        <h2><?php echo !empty($colecciones) ? $colecciones : 0; ?></h2>
+                        <p class="text-green">Listas creadas</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- BANNER -->
+            <div class="banner">
+
+                <div class="banner-text">
+
+                    <h2>Crea, organiza y comparte</h2>
+
+                    <p>
+                        Todo lo que necesitas para gestionar tu contenido
+                        en un solo lugar.
+                    </p>
+
+                    <button type="button">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        Subir video
+                    </button>
+
+                </div>
+
+                <div class="banner-graphic"></div>
+
+            </div>
+
+            <!-- HEADER VIDEOS -->
+            <div class="section-header">
+
+                <h3>Videos recientes</h3>
+
+                <a href="#" class="see-all">
+                    Ver todos
+                </a>
+
+            </div>
+
+            <!-- VIDEOS -->
+            <div class="videos-grid">
+
+                <div class="video-card">
+
+                    <div class="thumbnail-container">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
+                            alt="video">
+                        <span class="duration">12:45</span>
+                    </div>
+
+                    <div class="video-detail">
+                        <h4>Estrategias de marketing</h4>
+                        <span>12 May 2024</span>
+                    </div>
+
+                </div>
+
+                <div class="video-card">
+
+                    <div class="thumbnail-container">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
+                            alt="video">
+                        <span class="duration">18:32</span>
+                    </div>
+
+                    <div class="video-detail">
+                        <h4>Presentación de proyecto</h4>
+                        <span>10 May 2024</span>
+                    </div>
+
+                </div>
+
+                <div class="video-card">
+
+                    <div class="thumbnail-container">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+                            alt="video">
+                        <span class="duration">15:20</span>
+                    </div>
+
+                    <div class="video-detail">
+                        <h4>Cómo grabar contenido</h4>
+                        <span>8 May 2024</span>
+                    </div>
+
+                </div>
+
+                <div class="video-card">
+
+                    <div class="thumbnail-container">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475"
+                            alt="video">
+                        <span class="duration">22:10</span>
+                    </div>
+
+                    <div class="video-detail">
+                        <h4>Edición avanzada</h4>
+                        <span>5 May 2024</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- PANEL DERECHO -->
+        <div class="right-panel">
+
+            <div class="right-box">
+
+                <h3>Acciones rápidas</h3>
+
+                <div class="action-list">
+
+                    <a href="#" class="action-item">
+
+                        <div class="action-left">
+
+                            <div class="action-icon bg-purple">
+                                <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                            </div>
+
+                            <span>Subir nuevo video</span>
+
+                        </div>
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Hub Login</title>
+
+    <!-- ICONOS -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- FUENTE -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/inicio_sesion.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LADO IZQUIERDO -->
+    <div class="left-panel">
+
+        <div class="overlay"></div>
+
+        <div class="content">
+
+            <div class="logo">
+
+                <div class="logo-icon">M</div>
+
+                <div class="logo-text">
+                    <h1>MASTER HUB</h1>
+                    <span>MEDIA CENTER</span>
+                </div>
+
+            </div>
+
+            <div class="line"></div>
+
+            <p>
+                Plataforma para organizar, clasificar y consultar videos utilizados en publicidad y redes sociales.
+            </p>
+
+            <div class="icons">
+
+                <div class="icon-box">
+                    <i class="fa-regular fa-folder"></i>
+                </div>
+
+                <div class="icon-box">
+                    <i class="fa-regular fa-circle-play"></i>
+                </div>
+
+                <div class="icon-box">
+                    <i class="fa-solid fa-clapperboard"></i>
+                </div>
+
+                <div class="icon-box">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- LOGIN -->
+    <div class="right-panel">
+
+        <div class="login-card">
+
+            <div class="top-logo">
+                M
+            </div>
+
+            <h2>Iniciar sesión</h2>
+
+            <p class="subtitle">
+                Accede a tu cuenta para continuar
+            </p>
+
+            <!-- FORMULARIO -->
+            <form action="php/login.php" method="POST">
+
+                <label>Usuario</label>
+
+                <div class="input-box">
+
+                    <i class="fa-regular fa-user"></i>
+
+                    <input 
+                    type="text"
+                    id="correo"
+                    name="correo"
+                    placeholder="Ingresa tu usuario"
+                    required>
+
+                </div>
+
+                <label>Contraseña</label>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input 
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Ingresa tu contraseña"
+                    required>
+
+                    <!-- OJO -->
+                    <i class="fa-regular fa-eye" id="togglePassword"></i>
+
+                </div>
+
+                <div class="options">
+
+                    <label class="remember">
+                        <input type="checkbox">
+                        Recordarme
+                    </label>
+
+                    <a href="#">
+                        ¿Olvidaste tu contraseña?
+                    </a>
+
+                </div>
+
+                <!-- BOTÓN LOGIN -->
+                <button type="submit" class="login-btn">
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                    <span>Iniciar sesión</span>
+
+                </button>
+
+<button 
+type="button" 
+class="login-btn"
+style="margin-top:15px;"
+onclick="window.location.href='registro.html'">
+
+    <i class="fa-solid fa-user-plus"></i>
+
+    <span>Registrarse</span>
+
+</button>
+
+
+                <div class="divider">
+                    <span>o</span>
+                </div>
+
+                <!-- BOTÓN INSTITUCIONAL -->
+                <button type="button" class="institutional-btn">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <span>Acceso con cuenta institucional</span>
+
+                </button>
+
+            </form>
+
+            <div class="footer">
+                ¿No tienes una cuenta?
+                <a href="#">Contacta al administrador</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- SCRIPT DEL OJO -->
+<script>
+
+const togglePassword = document.getElementById("togglePassword");
+const password = document.getElementById("password");
+
+togglePassword.addEventListener("click", function(){
+
+    // MOSTRAR CONTRASEÑA
+    if(password.type === "password"){
+
+        password.type = "text";
+
+        this.classList.remove("fa-eye");
+        this.classList.add("fa-eye-slash");
+
+    }
+
+    // OCULTAR CONTRASEÑA
+    else{
+
+        password.type = "password";
+
+        this.classList.remove("fa-eye-slash");
+        this.classList.add("fa-eye");
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
